@@ -74,6 +74,19 @@ $ docker inspect <container-name> | jq '.[].Mounts[] | {Name, Source, Destinatio
 
 TODO: I'm not seeing these files on my actual system!  Hmmm... I'll have to come back and sort this out.
 
+
+### Open in Codespaces
+
+In a browser navigate to your repo.  Click on the `Code` button, select `Codespaces`, and then click `Open in codespace`.  A new tab will be opened, your custom container will be spun up and the Web GUI for VS Code will show your project!
+
+TODO: There are probably ways to open the codespace locally on VS Code or use VS Code to open a Codespace ... explore those features.
+- Yup.  It requires the Codespace extension in VS Code.  It is then accessible as a window in the Remote Explorer extension.
+
+[Learn more about Codespaces][codespaces-docs]
+
+From the Web GUI, via the command palette or the
+
+
 ## Clone in Named Container Volume
 
 TODO: Explore how this is different than _Clone in Container Volume_ ([docs][clone-in-named-volume])
@@ -88,3 +101,5 @@ TODO: Explore how this is different than _Clone in Container Volume_ ([docs][clo
 [dockerfile-best-practices-2]: https://github.com/dnaprawa/dockerfile-best-practices
 [dockerfile-best-practices-3]: https://sysdig.com/blog/dockerfile-best-practices/
 [dockerfile-best-practices-4]: https://docs.docker.com/guides/workshop/09_image_best/
+[codespaces-docs]: https://docs.github.com/en/codespaces
+[my-codespaces]: https://github.com/codespaces/
