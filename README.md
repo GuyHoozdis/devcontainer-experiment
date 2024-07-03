@@ -55,6 +55,7 @@ Open the palette and select _Dev Containers: Rebuild Container_.  Don't forget t
 The repo files do live on your file system.  How can you locate them?
 
 1. Through Docker Desktop.
+1. With the _Remote Explorer_ in VS Code (the icon looks like a computer screen icon).
 1. With the Docker CLI in a shell outside the devcontainer.
 
 
@@ -71,6 +72,7 @@ $ docker inspect <container-name> | jq '.[].Mounts[] | {Name, Source, Destinatio
 # ... snip...
 ```
 
+TODO: I'm not seeing these files on my actual system!  Hmmm... I'll have to come back and sort this out.
 
 ## Clone in Named Container Volume
 
