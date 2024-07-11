@@ -8,6 +8,20 @@
 	//"image": "mcr.microsoft.com/devcontainers/universal:2-linux"
 	"build": {
 		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"tamasfe.even-better-toml",
+				"ms-python.python"
+			],
+			"settings": {
+				"dotfiles.repository": "https://github.com/GuyHoozdis/dotfiles.git#21-create-installer-for-vscode-devcontainer",
+				"dotfiles.targetPath": "~/dotfiles",
+				"dotfiles.installCommand": "~/dotfiles/share/install/vscode/install.sh"
+			}
+		}
 	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
