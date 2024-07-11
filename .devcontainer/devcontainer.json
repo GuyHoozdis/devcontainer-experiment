@@ -17,9 +17,9 @@
 				"ms-python.python"
 			],
 			"settings": {
-				"dotfiles.repository": "https://github.com/GuyHoozdis/dotfiles.git#21-create-installer-for-vscode-devcontainer",
+				"dotfiles.repository": "https://github.com/GuyHoozdis/dotfiles.git",
 				"dotfiles.targetPath": "~/dotfiles",
-				"dotfiles.installCommand": "~/dotfiles/share/install/vscode/install.sh"
+				"dotfiles.installCommand": "./share/install/vscode/install.sh"
 			}
 		}
 	}
