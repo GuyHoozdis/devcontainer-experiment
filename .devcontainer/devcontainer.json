@@ -17,12 +17,12 @@
 				"ms-python.python"
 			],
 			"settings": {
-				"dotfiles.repository": "https://github.com/GuyHoozdis/dotfiles.git",
+				"dotfiles.repository": "GuyHoozdis/dotfiles",
 				"dotfiles.targetPath": "~/dotfiles",
 				"dotfiles.installCommand": "./share/install/vscode/install.sh"
 			}
 		}
-	}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -32,6 +32,8 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "uname -a",
+	// "postCreateCommand": "git config --global --add safe.directory /workspace/devcontainer-experiment"
+	"postCreateCommand": ["bash", "-c", "./.devcontainer/postCreateCommand.sh"]
 
 	// Configure tool-specific properties.
 	// "customizations": {},
