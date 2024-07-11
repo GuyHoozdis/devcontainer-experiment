@@ -6,11 +6,11 @@ authors = ["Guy Hoozdis <GuyHoozdis@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.8.1,<4.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
-ipython = "^8.26.0"
+ipython = "*"
 pytest = "^8.2.2"
 
 [build-system]
