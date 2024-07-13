@@ -20,7 +20,39 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 END='\033[0m'
 
-echo -e "[${GREEN}*${END}] ${RED}All your postCreateCommand are belong to us${END}!"
 
-# ???: Why does the container need this sometimes, but not others?
-# git config --global --add safe.directory /workspaces/devcontainer-experiment
+echo -e "${GREEN}== ${RED}PostCreateCommand${GREEN} ==${END}"
+env | sort
+echo -e "${GREEN}================================================================================${END}"
+
+# ==============================================================================
+# Debugging passing variables into the script from the devcontainer.json
+#
+# From a terminal:
+#  $ bash -c '.devcontainer/postCreateCommand.sh $@' scriptname one two three
+#
+# From the devcontainer.json:
+# "postCreateCommand": [
+#   "bash", "-c", "./.devcontainer/postCreateCommand.sh $*",
+#   "<ignored>",
+#   "${localWorkspaceFolder}"
+#   "${containerWorkspaceFolder}"
+#   "${localWorkspaceFolderBasename}"
+#   "${containerWorkspaceFolderBasename}"
+# ]
+# ------------------------------------------------------------------------------
+# Both of the above examples work with the logic below.  For more info about how
+# arguments are passed and parsed from the devcontainer.json commands, see:
+#   https://containers.dev/implementors/json_reference/#formatting-string-vs-array-properties
+#
+# In the postCreateCommand example above using $* vs. "$*", $@, or "$@" have
+# differet behaviors.  Notice the terminal command example uses single qotes
+# around the script and the postCreateCommand does not.
+# ==============================================================================
+echo -e "nArgs: $#"
+echo -e "localWorkspaceFolder = ${1-<Missing>}"
+echo -e "containerWorkspaceFolder = ${2-<Missing>}"
+echo -e "localWorkspaceFolderBasename = ${3-<Missing>}"
+echo -e "containerWorkspaceFolderBasename = ${4-<Missing>}"
+
+echo -e "[${GREEN}*${END}] ${RED}All your postCreateCommand are belong to us${END}!"

@@ -67,12 +67,19 @@ COPY --from=py38 /usr/local/share/man/man1/python3.8.1 /usr/local/share/man/man1
 COPY --from=py38 /usr/local/lib/python3.8/ /usr/local/lib/python3.8/
 COPY --from=py38 /usr/local/lib/libpython3.8.a /usr/local/lib/
 
-COPY --from=py310 /usr/local/include/python3.9/ /usr/local/include/python3.9/
-COPY --from=py310 /usr/local/bin/python3.9 /usr/local/bin/
-COPY --from=py310 /usr/local/bin/python3.9-config /usr/local/bin/
-COPY --from=py310 /usr/local/share/man/man1/python3.9.1 /usr/local/share/man/man1/
-COPY --from=py310 /usr/local/lib/python3.9/ /usr/local/lib/python3.9/
-COPY --from=py310 /usr/local/lib/libpython3.9.a /usr/local/lib/
+COPY --from=py39 /usr/local/include/python3.9/ /usr/local/include/python3.9/
+COPY --from=py39 /usr/local/bin/python3.9 /usr/local/bin/
+COPY --from=py39 /usr/local/bin/python3.9-config /usr/local/bin/
+COPY --from=py39 /usr/local/share/man/man1/python3.9.1 /usr/local/share/man/man1/
+COPY --from=py39 /usr/local/lib/python3.9/ /usr/local/lib/python3.9/
+COPY --from=py39 /usr/local/lib/libpython3.9.a /usr/local/lib/
+
+COPY --from=py310 /usr/local/include/python3.10/ /usr/local/include/python3.10/
+COPY --from=py310 /usr/local/bin/python3.10 /usr/local/bin/
+COPY --from=py310 /usr/local/bin/python3.10-config /usr/local/bin/
+COPY --from=py310 /usr/local/share/man/man1/python3.10.1 /usr/local/share/man/man1/
+COPY --from=py310 /usr/local/lib/python3.10/ /usr/local/lib/python3.10/
+COPY --from=py310 /usr/local/lib/libpython3.10.a /usr/local/lib/
 
 COPY --from=py312 /usr/local/include/python3.12/ /usr/local/include/python3.12/
 COPY --from=py312 /usr/local/bin/python3.12 /usr/local/bin/python3.12

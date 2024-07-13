@@ -4,6 +4,7 @@
 Especially on Windows OS, at least for now, it slows down performance.  Perhaps due to filesystem communication across
 the system boundary from the native environment over to the WSL which is the environment that the container lives in.
 
+See the
 
 ## Clone in Container Volume
 
@@ -14,7 +15,7 @@ Take a GitHub repo that already exists and clone it into the container.
 1. Open the command palette and select: _Dev Containers: Clone Repository in Container Volume_ ([docs][clone-in-container]).
 1. You will be prompted for the repo URL (if not logged into GitHub it will prompt you for credentials and authorization).
 1. VS Code will start building the container.  Click the "Show Log" link in the dialog window in the bottom right of VS Code window.
-1. You will be prompted to _Select a container configuration template_.  Search by name, scroll to pick, or click _Show All Definitions_ to see more options.  Select the _Default Linux Universal_ image - unless you have a specific need.  This is the image used for Codespaces.  See the [docs]][default-linux-universal] for details about what the image contains (it's a lot).  One downside to selecting this image is that it is large and will take a while to download.
+1. You will be prompted to _Select a container configuration template_.  Search by name, scroll to pick, or click _Show All Definitions_ to see more options.  Select the _Default Linux Universal_ image - unless you have a specific need.  This is the image used for Codespaces.  See the [docs][default-linux-universal] for details about what the image contains (it's a lot).  One downside to selecting this image is that it is large and will take a while to download.
 1. You will be prompted to _Select additional features to install_.  Leave this as `0 Selected` and click `OK`. (Note: Features can be added later through the _Configure Container Features_ command.)
 1. Take a break while waiting for the image to be built.
 1. Open a new terminal and you should be in `/workspaces/<repo-name>` directory.  `whoami` should return `codespaces`.  `git status` will show the `.devcontainer` and `.github` directories that have been created locally, but not committed to the project yet.
@@ -49,6 +50,7 @@ Open `devcontainer.json`.  Use value for "image" in the `Dockerfile`, then repla
 
 Open the palette and select _Dev Containers: Rebuild Container_.  Don't forget to add and commit your changed files.
 
+Refer to the [Dev Container Metadata Reference][devcontainer-metadata-reference] for the full file specification and the [pre-defined environment variables][devcontainer-pre-defined-variables] that are available.
 
 ### Locate the Actual Files from the Repo
 
@@ -92,7 +94,27 @@ From the Web GUI, via the command palette or the
 TODO: Explore how this is different than _Clone in Container Volume_ ([docs][clone-in-named-volume])
 
 
-[default-linux-universal]: https://github.com/microsoft/vscode-dev-containers/blob/main/containers/codespaces-linux/README.md
+# Devcontainer Images
+
+To be an image compatible with VSCode _devcontainers_, the image must meet a certain [specification][devcontainer-spec].
+
+This is the image that is used, by default, in GitHub Codespaces.
+- [Linux Universal Image on GitHub][default-linux-universal]
+- [Linux Universal Image on Microsoft Artifact Registry](https://mcr.microsoft.com/en-us/product/devcontainers/universal/tags)
+- [Linux Universal Image on Docker Hub](https://hub.docker.com/r/microsoft/vscode-devcontainers)
+
+
+## Improve the Performance of Your Container
+
+- [Improve disk performance](https://code.visualstudio.com/remote/advancedcontainers/improve-performance)
+- [Multi-stage builds](https://docs.docker.com/build/guide/multi-stage/)
+
+
+[default-linux-universal]: https://github.com/devcontainers/images/tree/main/src/universal
+[advanced-container-config]: https://code.visualstudio.com/remote/advancedcontainers/overview
+[devcontainer-spec]: https://github.com/devcontainers/spec/blob/main/README.md
+[devcontainer-metadata-reference]: https://containers.dev/implementors/json_reference/
+[devcontainer-pre-defined-variables]: https://containers.dev/implementors/json_reference/#variables-in-devcontainerjson
 [clone-in-container]: https://code.visualstudio.com/remote/advancedcontainers/improve-performance#_use-clone-repository-in-container-volume
 [clone-in-named-volume]: https://code.visualstudio.com/remote/advancedcontainers/improve-performance#_use-a-targeted-named-volume
 [container-features]: https://containers.dev/features
